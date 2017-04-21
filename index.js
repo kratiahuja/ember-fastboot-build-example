@@ -8,10 +8,12 @@ var Funnel = require('broccoli-funnel');
 module.exports = {
   name: 'ember-fastboot-build-example',
 
-  appendFastBootManifest: function() {
-    return {
-      vendorFiles: ['ember-fastboot-build-example/foo.js'],
-      appFiles: ['ember-fastboot-build-example/bar.js']
-    }
+  updateFastBootManifest: function(manifest) {
+    manifest.vendorFiles.unshift('ember-fastboot-build-example/foo.js');
+    manifest.appFiles.push('ember-fastboot-build-example/bar.js');
+
+    console.log('AFTER:');
+    console.log(manifest);
+    return manifest;
   }
 };
