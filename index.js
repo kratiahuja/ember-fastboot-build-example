@@ -12,8 +12,6 @@ module.exports = {
     manifest.vendorFiles.unshift('ember-fastboot-build-example/foo.js');
     manifest.appFiles.push('ember-fastboot-build-example/bar.js');
 
-    console.log('AFTER:');
-    console.log(manifest);
     return manifest;
   }
 };
