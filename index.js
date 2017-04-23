@@ -1,9 +1,6 @@
 /* eslint-env node */
 'use strict';
-var path = require('path');
-var BroccoliMergeTrees = require('broccoli-merge-trees');
-var Concat = require('broccoli-concat');
-var Funnel = require('broccoli-funnel');
+var filterInitializers = require('fastboot-filter-initializers');
 
 module.exports = {
   name: 'ember-fastboot-build-example',
@@ -13,5 +10,9 @@ module.exports = {
     manifest.appFiles.push('ember-fastboot-build-example/bar.js');
 
     return manifest;
+  },
+
+  preconcatTree: function(tree) {
+    return filterInitializers(tree, this.app.name);
   }
 };
