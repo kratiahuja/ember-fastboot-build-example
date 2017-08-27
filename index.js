@@ -12,6 +12,12 @@ module.exports = {
     return manifest;
   },
 
+  fastbootConfigTree() {
+    return {
+      'foo': 'bar'
+    }
+  },
+
   preconcatTree: function(tree) {
     return filterInitializers(tree, this.app.name);
   }
